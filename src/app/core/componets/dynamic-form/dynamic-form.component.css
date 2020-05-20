@@ -1,0 +1,42 @@
+.mat-toolbar {
+    background: #FF9800;
+    color: #fff;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 3fr 6fr 3fr;
+    grid-gap: 10px;
+    background-color: #fff;
+    color: #fff;
+  }
+
+  .buttonAlign { 
+    display: grid;
+    grid-template-columns: 20fr 8fr 8fr 3fr;
+    grid-gap: 10px;
+  }
+
+ .submitBtn {
+    background-color: #03A9F4;
+    color: #fff;
+    border-radius: 49px;
+    height: 47px;
+    width: 113px;
+ }
+
+ .lablesAlign {
+    float: left; 
+    padding-top: 25px;
+    word-wrap: normal;
+ }
+
+ .wordBreak {
+   word-wrap: break-word; 
+ }
+
+ .extra-pad {
+ padding-right: 40px;
+ }
+
+  

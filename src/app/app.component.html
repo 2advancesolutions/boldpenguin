@@ -1,0 +1,8 @@
+
+  <app-dynamic-form 
+  [questions$]="questions$"
+  [classificationCodes]="classificationCodes"
+  (sendCode)=fetchCodes($event)
+  (formData)="submitForm($event)">
+  </app-dynamic-form>
+

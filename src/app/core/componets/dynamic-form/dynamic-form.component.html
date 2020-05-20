@@ -1,0 +1,80 @@
+
+<!-- Main Toolbar of an App -->
+<mat-toolbar color="orange">
+  <span>Bold Penguin</span>
+</mat-toolbar>
+<br> <br> <br>
+<div class="wrapper">
+  <div></div>
+  <div>
+    <mat-card>
+    
+      <h1 style="float: left; padding-left: 10px">Your customer quote starts here.</h1>
+  
+     <div></div>
+      
+      <form *ngIf="formTemplate" [formGroup]="myFormGroup" (ngSubmit)="submitForm(myFormGroup.value)">
+        <div *ngFor="let form_elem of formTemplate;">
+          <div [ngSwitch]="form_elem.type">
+            <div *ngSwitchCase="'input'">
+              <label class="lablesAlign"> {{form_elem.text}} <span class="require">*</span></label>
+              <mat-form-field appearance="outline">
+                <input matInput formControlName="{{form_elem .id}}" />
+              </mat-form-field>
+            </div>
+            <div *ngSwitchCase="'select'">
+              <label class="lablesAlign"> {{form_elem.text}}<span class="require">*</span></label>
+              <mat-form-field appearance="outline" style="padding-left: 60px">
+                <mat-select formControlName="{{form_elem .id}}">
+                  <mat-option *ngFor="let opt of form_elem.options" [value]="opt.id">
+                    {{opt.text}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+           
+            <div *ngSwitchCase="'search'">
+                <label class="lablesAlign wordBreak"> {{form_elem.text}} <span class="require">*</span></label>
+              <mat-form-field appearance="outline" class="extra-pad">
+                <input matInput formControlName="{{form_elem .id}}" 
+                placeholder="Start typing ..."  
+                [matAutocomplete]="auto"/>
+
+                      <!-- CREATE AUTO COMPLETE PANEL WITH OPTIONS. -->
+                      <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let item of classificationCodes" [value]="item.code">
+                          {{ item.description }}
+                        </mat-option>
+                      </mat-autocomplete>
+                      </mat-form-field>
+         
+            </div>
+          </div>
+        </div>
+
+        <div class="buttonAlign">
+         <div> 
+           
+         </div>
+         <div>
+      
+         
+         </div>
+         <div>
+            <button  mat-button  (click)="clearForm(false)">Cancel</button>
+         </div>
+       <div>
+          <button class="submitBtn" [disabled]="!myFormGroup.valid" mat-raised-buttoncolor="primary" 
+          type="submit" value="save">Submit</button>
+       </div>
+        </div>
+     
+      </form>
+    </mat-card>
+  </div>
+  <div></div>
+
+</div>
+
+
+
